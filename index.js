@@ -14,7 +14,7 @@ const pg = require('pg');
 
 // Initialise postgres client
 const config = {
-  user: 'ck',
+  user: 'kokcheekean',
   host: '127.0.0.1',
   database: 'pokemons',
   port: 5432,
@@ -159,8 +159,8 @@ const deletePokemon = (request, response) => {
 app.get('/', getRoot);
 
 app.get('/pokemon/:id/edit', editPokemonForm);
-app.get('/pokemon/:id', getPokemon);
 app.get('/pokemon/new', getNew);
+app.get('/pokemon/:id', getPokemon);
 app.get('/pokemon/:id/delete', deletePokemonForm);
 
 app.post('/pokemon', postPokemon);
