@@ -14,7 +14,7 @@ const pg = require('pg');
 
 // Initialise postgres client
 const config = {
-  user: 'kokcheekean',
+  user: 'ck',
   host: '127.0.0.1',
   database: 'pokemons',
   port: 5432,
