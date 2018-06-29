@@ -24,9 +24,15 @@ The deliverable is an app that has CRUD functionality on pokemons that can be as
 
 * Change the pokemon form to add an input for user id such that the pokemon belongs to the user with that id
 
+* Create new routes for user-login and user-logout
+
+* If the currently logged in user creates a pokemon, the pokemon is automatically associated with the currently logged in user
+
 * (FURTHER) Add a drop-down menu of all users on the pokemon form
 
 * (FURTHER) Add a types table and a pokemon-types table in your database, and create a seed.sql file inserting relevant data for these 2 tables. Note that a pokemon can have many types, and a type can have many pokemons.
+
+* (FURTHER) When a user is logged in, the home page should show a separate table containing only pokemon associated with the user.
 
 ## Useful SQL commands
 
