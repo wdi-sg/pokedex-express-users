@@ -1,8 +1,4 @@
-# Pokedex Express App (with Postgres SQL)
-
-For this exercise, we'll upgrade from storing pokedex data in a plain JSON file to a fully fledged Postgres database. The end result we want is a CRUD app for pokemon with data saved into a database.
-
-This is a clean new app without a `seed.sql` file. So you'll need at least 2 users to make sure that eveything is working correctly.
+# Pokedex Express - Many-to-Many
 
 ## Getting Started
 
@@ -17,25 +13,37 @@ This is a clean new app without a `seed.sql` file. So you'll need at least 2 use
 
 The deliverable is an app that has CRUD functionality on pokemons that can be associated with users. Some example code from the previous version of the exercise has been provided for you to build on, although you may extend your own code from the previous exercise if you wish to do so.
 
-* DELETE `/pokemon/:id` should delete the entry of the pokemon with the specified ID, and should redirect to the home page `/`
-
 * Create the relevant `tables.sql` file to create the appropriate table for your database
 
-* Create new routes for user-creation
+* Create new routes for user-creation.
 
-* Create new routes for user-login and user-logout
+* Create the association where a user can *catch* a pokemon. Users can catch many pokemon, and pokemon can be caught by many users. (this is a many-to-many relationship that must use a join table).
+  - start with the simplest implementation of this feature- simply create a form that has a field for each id for each column of the join table
+  - then, on the show route of the user write a query that will allow you to:
+    * show what pokemon a user has captured
 
-* If the currently logged in user creates a pokemon, the pokemon is automatically associated with the currently logged in user
+#### Further
+* Create new routes for showing a single user (user show). Add a form to this page that uses a `select` (drop down) to select a pokemon that was captured.
 
-* So, add to the pokemon table a column with the foreign key `user_id` that refers to the id column in the user table.
+#### Further
+Change the "*capture*" form from a text input to a `select` (drop-down). The user can select from the drop down a user and a pokemon.
+
+#### Further
+On the show route of the pokemon, write a query that will allow you to:
+    * show what users have captured that pokemon
 
 #### Further
 
-* Add a types table and a pokemon-types table in your database, and create a seed.sql file inserting relevant data for these 2 tables. Note that a pokemon can have many types, and a type can have many pokemons.
+* DELETE `/pokemon/:id` should delete the entry of the pokemon with the specified ID, and should redirect to the home page `/`
+
+* Create new routes for editing a user and deleting a user.
+
+#### Further
+If the user enters a pokemon to capture that has already been captured by the user, show an error.
 
 #### Further
 
-* When a user is logged in, the home page should show a separate table containing only pokemon associated with the user.
+* Add a types table and a pokemontypes table in your database, and create a seed.sql file inserting relevant data for these 2 tables. Note that a pokemon can have many types, and a type can have many pokemons.
 
 ## Useful SQL commands
 
