@@ -15,7 +15,7 @@ The deliverable is an app that has CRUD functionality on pokemons that can be as
 
 * Create the relevant `tables.sql` file to create the appropriate table for your database
 
-* Create new routes for user-creation.
+* seed your DB with the `pokedex.sql` file
 
 * Create the association where a user can *catch* a pokemon. Users can catch many pokemon, and pokemon can be caught by many users. (this is a many-to-many relationship that must use a join table).
   - start with the simplest implementation of this feature- simply create a form that has a field for each id for each column of the join table

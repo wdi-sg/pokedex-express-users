@@ -14,7 +14,7 @@ const pg = require('pg');
 
 // Initialise postgres client
 const config = {
-  user: 'ck',
+  user: 'akira',
   host: '127.0.0.1',
   database: 'pokemons',
   port: 5432,
@@ -68,13 +68,13 @@ app.engine('jsx', reactEngine);
       console.log('Query result:', result);
 
       // redirect to home page
-      response.render( 'home', {pokemon: result.rows} );
+      response.render( 'pokemon/home', {pokemon: result.rows} );
     }
   });
 }
 
 const getNew = (request, response) => {
-  response.render('new');
+  response.render('pokemon/new');
 }
 
 const getPokemon = (request, response) => {
@@ -87,7 +87,7 @@ const getPokemon = (request, response) => {
       console.log('Query result:', result);
 
       // redirect to home page
-      response.render( 'pokemon', {pokemon: result.rows[0]} );
+      response.render( 'pokemon/pokemon', {pokemon: result.rows[0]} );
     }
   });
 }
@@ -120,7 +120,7 @@ const editPokemonForm = (request, response) => {
       console.log('Query result:', result);
 
       // redirect to home page
-      response.render( 'edit', {pokemon: result.rows[0]} );
+      response.render( 'pokemon/edit', {pokemon: result.rows[0]} );
     }
   });
 }
@@ -152,6 +152,41 @@ const deletePokemon = (request, response) => {
 }
 /**
  * ===================================
+ * User
+ * ===================================
+ */
+
+
+const userNew = (request, response) => {
+  response.render('users/new');
+}
+
+const userCreate = (request, response) => {
+
+  const queryString = 'INSERT INTO users (name) VALUES ($1)';
+
+  const values = [request.body.name];
+
+  console.log(queryString);
+
+  pool.query(queryString, values, (err, result) => {
+
+    if (err) {
+
+      console.error('Query error:', err.stack);
+      response.send('dang it.');
+    } else {
+
+      console.log('Query result:', result);
+
+      // redirect to home page
+      response.redirect('/');
+    }
+  });
+}
+
+/**
+ * ===================================
  * Routes
  * ===================================
  */
@@ -171,6 +206,8 @@ app.delete('/pokemon/:id', deletePokemon);
 
 // TODO: New routes for creating users
 
+app.get('/users/new', userNew);
+app.post('/users', userCreate);
 
 /**
  * ===================================
