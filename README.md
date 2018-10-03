@@ -19,18 +19,16 @@ The deliverable is an app that has CRUD functionality on pokemons that can be as
 
 * Create the association where a user can *catch* a pokemon. Users can catch many pokemon, and pokemon can be caught by many users. (this is a many-to-many relationship that must use a join table).
   - start with the simplest implementation of this feature- simply create a form that has a field for each id for each column of the join table
-  - then, on the show route of the user write a query that will allow you to:
-    * show what pokemon a user has captured
+  - then, on the show route of the user (`/users/1`) write a query that will allow you to:
+    - show what pokemon a user has captured
 
 #### Further
-* Create new routes for showing a single user (user show). Add a form to this page that uses a `select` (drop down) to select a pokemon that was captured.
-
-#### Further
-Change the "*capture*" form from a text input to a `select` (drop-down). The user can select from the drop down a user and a pokemon.
+* For a route showing a single user (`/users/1`). Add a form to this page that uses a `select` (drop down) to select a pokemon that was captured.
 
 #### Further
 On the show route of the pokemon, write a query that will allow you to:
     * show what users have captured that pokemon
+    * add a form that will let users select a user that has captured that pokemon
 
 #### Further
 
