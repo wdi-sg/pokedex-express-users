@@ -27,8 +27,8 @@ The deliverable is an app that has CRUD functionality on pokemons that can be as
 
 #### Further
 On the show route of the pokemon, write a query that will allow you to:
-    * show what users have captured that pokemon
-    * add a form that will let users select a user that has captured that pokemon
+    - show what users have captured that pokemon
+    - add a form that will let users select a user that has captured that pokemon
 
 #### Further
 
