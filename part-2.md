@@ -18,7 +18,7 @@ Then, create user login. First, create a form that contains all the information 
 Now, we can create a `POST` route that accepts the request made by the form. Query for the user. When you have the user, hash the value that is coming in from the request. Compare this value against what is in the db. If the values match, set a cookie.
 
 #### Further
-Add the logic that a user is created and then they can go to any pokemon `/pokemon/2` and capture that pokemon. Restrict the user from capturing pokemon for any other user.
+Add the logic that a user is created and then they can go to any pokemon `/pokemon/2` and capture that pokemon. Restrict the user from capturing pokemon for any other user. *Hint: when the user logs in / registers, you can set another cookie with their user id. Then you can use this user id when they request to capture a pokemon.*
 
 #### Further
 If the user goes to their own page ( they are user id 1 ) let them release a pokemon they have captured (delete a row of the join table).
